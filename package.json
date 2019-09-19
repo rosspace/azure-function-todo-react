@@ -1,31 +1,52 @@
 {
   "name": "azure-fuction-todo-react",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development npm run lint && webpack-dev-server",
+    "lint": "eslint --ext .js --ext .jsx src",
+    "build": "cross-env NODE_ENV=production webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rosspace/azure-function-todo-react.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rosspace/azure-function-todo-react/issues"
+  },
+  "homepage": "https://github.com/rosspace/azure-function-todo-react#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "10.0.3",
+    "babel-loader": "^8.0.6",
+    "cross-env": "^6.0.0",
+    "eslint": "^6.2.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-loader": "3.0.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.14.3",
+    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-template": "^6.2.0",
+    "webpack": "^4.40.2",
+    "webpack-bundle-analyzer": "^3.5.0",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.1"
+  },
   "dependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4",
+    "redux-api-middleware": "^3.0.1",
+    "redux-thunk": "^2.3.0"
   }
 }

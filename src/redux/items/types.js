@@ -1,0 +1,7 @@
+const LIST_ITEMS = {
+  REQUEST: 'items/LIST_ITEMS_REQUEST',
+  SUCCESS: 'items/LIST_ITEMS_SUCCESS',
+  FAILURE: 'items/LIST_ITEMS_FAILURE',
+};
+
+export default { LIST_ITEMS };
