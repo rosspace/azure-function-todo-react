@@ -42,6 +42,8 @@
     "webpack-dev-server": "^3.8.1"
   },
   "dependencies": {
+    "@material-ui/core": "^4.4.2",
+    "immer": "^4.0.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.1",

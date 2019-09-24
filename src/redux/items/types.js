@@ -16,7 +16,7 @@ const GET_ITEM = {
   FAILURE: 'items/GET_ITEMS_FAILURE',
 };
 
-const QUERY_ITEM = {
+const QUERY_ITEMS = {
   REQUEST: 'items/QUERY_ITEMS_REQUEST',
   SUCCESS: 'items/QUERY_ITEMS_SUCCESS',
   FAILURE: 'items/QUERY_ITEMS_FAILURE',
@@ -38,7 +38,7 @@ export default {
   ADD_ITEM,
   DELETE_ITEM,
   GET_ITEM,
-  QUERY_ITEM,
+  QUERY_ITEMS,
   LIST_ITEMS,
   UPDATE_ITEM,
 };
