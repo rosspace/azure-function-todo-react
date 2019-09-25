@@ -1,14 +1,17 @@
+import { combineReducers } from 'redux';
 import produce from 'immer';
-import types from './types';
 
-const items = produce((draft, action) => {
+import types from './types';
+import { TodoItemFilters } from '../../constants';
+
+const data = produce((draft, action) => {
   switch (action.type) {
     case types.ADD_ITEM.SUCCESS: {
-      draft.push(action.payload);
+      draft.push(action.payload.data);
       return;
     }
     case types.DELETE_ITEM.SUCCESS: {
-      return draft.filter(i => i.id === action.data);
+      return draft.filter(i => i.id !== action.payload.data);
     }
     case types.GET_ITEM.SUCCESS: {
       return draft.map(i => {
@@ -34,4 +37,15 @@ const items = produce((draft, action) => {
   }
 }, []);
 
-export default items;
+const filter = produce((draft, action) => {
+  if (action.type === types.SET_FILTER) {
+    return action.payload;
+  }
+
+  return draft;
+}, TodoItemFilters.ALL);
+
+export default combineReducers({
+  data,
+  filter,
+});

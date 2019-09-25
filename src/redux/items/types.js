@@ -34,6 +34,8 @@ const UPDATE_ITEM = {
   FAILURE: 'items/UPDATE_ITEMS_FAILURE',
 };
 
+const SET_FILTER = 'items/SET_FILTER';
+
 export default {
   ADD_ITEM,
   DELETE_ITEM,
@@ -41,4 +43,5 @@ export default {
   QUERY_ITEMS,
   LIST_ITEMS,
   UPDATE_ITEM,
+  SET_FILTER,
 };

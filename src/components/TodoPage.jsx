@@ -4,17 +4,18 @@ import Grid from '@material-ui/core/Grid';
 
 import { selectors, operations } from '../redux/items';
 import TodoList from './TodoList';
+import TodoFilters from './TodoFilters';
 
 class TodoListPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: 'List todo items example',
+      title: 'List Todo Items Example',
     };
   }
 
   componentDidMount() {
-    this.props.listItems();
+    this.props.fetchItems();
   }
 
   render() {
@@ -26,7 +27,7 @@ class TodoListPage extends Component {
             <TodoList items={this.props.items} />
           </Grid>
           <Grid item xs={4}>
-            aside
+            <TodoFilters />
           </Grid>
         </Grid>
       </Fragment>
@@ -36,10 +37,13 @@ class TodoListPage extends Component {
 
 const mapStateToProps = state => {
   const items = selectors.items(state);
-  return { items };
+  const filter = selectors.filter(state);
+  return { items, filter };
 };
 
 export default connect(
   mapStateToProps,
-  { listItems: operations.listItems }
+  {
+    fetchItems: operations.fetchItems,
+  }
 )(TodoListPage);
