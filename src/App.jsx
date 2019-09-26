@@ -1,10 +1,14 @@
-import React, { Component, Fragment } from 'react';
+/* eslint-disable react/no-array-index-key */
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
 
 import { selectors, operations } from './redux/auth';
-import TodoPage from './components/TodoPage';
+import routes from './routes';
 
 class App extends Component {
   constructor(props) {
@@ -19,12 +23,35 @@ class App extends Component {
   render() {
     if (this.props.auth) {
       return (
-        <Fragment>
+        <Router>
           <CssBaseline />
+          <AppBar position="static">
+            <Toolbar>
+              <Switch>
+                {routes.map((r, i) => (
+                  <Route
+                    key={`header-${i}`}
+                    path={r.path}
+                    exact={r.exact}
+                    render={() => r.header}
+                  />
+                ))}
+              </Switch>
+            </Toolbar>
+          </AppBar>
           <Container maxWidth="lg">
-            <TodoPage />
+            <Switch>
+              {routes.map((r, i) => (
+                <Route
+                  key={`page-${i}`}
+                  path={r.path}
+                  exact={r.exact}
+                  component={r.page}
+                />
+              ))}
+            </Switch>
           </Container>
-        </Fragment>
+        </Router>
       );
     }
 

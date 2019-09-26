@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -6,6 +7,7 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
+import ExitToApp from '@material-ui/icons/ExitToApp';
 
 import { operations } from '../redux/items';
 
@@ -49,6 +51,11 @@ const TodoListItem = props => {
         >
           <DeleteIcon />
         </IconButton>
+        <Link to={`/${props.item.id}`}>
+          <IconButton>
+            <ExitToApp />
+          </IconButton>
+        </Link>
       </ListItemSecondaryAction>
     </ListItem>
   );
