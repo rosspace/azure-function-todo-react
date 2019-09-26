@@ -1,21 +1,22 @@
 import { TodoItemFilters } from '../../constants';
 
-const items = state => {
-  switch (state.items.filter) {
-    case TodoItemFilters.NOT_COMPLETE: {
-      return state.items.data.filter(i => !i.isComplete);
-    }
-    case TodoItemFilters.IS_COMPLETE: {
-      return state.items.data.filter(i => i.isComplete);
-    }
-    default: {
-      return state.items.data;
-    }
-  }
+const byId = id => state => {
+  return state.items.byId[id];
 };
 
-const byId = id => state => {
-  return state.items.data.find(i => i.id === id);
+const items = state => {
+  const itemList = state.items.allIds.map(id => byId(id)(state));
+  switch (state.items.filter) {
+    case TodoItemFilters.NOT_COMPLETE: {
+      return itemList.filter(i => !i.isComplete);
+    }
+    case TodoItemFilters.IS_COMPLETE: {
+      return itemList.filter(i => i.isComplete);
+    }
+    default: {
+      return itemList;
+    }
+  }
 };
 
 const filter = state => {
